@@ -28,4 +28,8 @@ E:\Basha\Working\TokenAuth\TokenAuth\bin\Microsoft.Owin.Security.xml
 E:\Basha\Working\TokenAuth\TokenAuth\bin\Microsoft.Owin.Security.Cookies.xml
 E:\Basha\Working\TokenAuth\TokenAuth\bin\Microsoft.Owin.Security.OAuth.xml
 E:\Basha\Working\TokenAuth\TokenAuth\bin\System.Web.Http.Owin.xml
-E:\Basha\Working\TokenAuth\TokenAuth\obj\Debug\TokenAuth.csprojResolveAssemblyReference.cache
+E:\Basha\Working\TokenAuth\TokenAuth\bin\System.Web.Cors.dll
+E:\Basha\Working\TokenAuth\TokenAuth\bin\System.Web.Http.Cors.dll
+E:\Basha\Working\TokenAuth\TokenAuth\bin\System.Web.Http.Cors.xml
+E:\Basha\Working\TokenAuth\TokenAuth\bin\Microsoft.Owin.Cors.dll
+E:\Basha\Working\TokenAuth\TokenAuth\bin\Microsoft.Owin.Cors.xml

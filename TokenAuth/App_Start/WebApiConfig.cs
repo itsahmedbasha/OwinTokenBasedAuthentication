@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace TokenAuth
@@ -11,6 +12,10 @@ namespace TokenAuth
         {
             // Web API configuration and services
 
+            // Web API configuration and services
+            // New code
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +24,9 @@ namespace TokenAuth
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

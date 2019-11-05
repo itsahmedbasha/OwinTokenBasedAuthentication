@@ -18,23 +18,28 @@ namespace TokenAuth
         {
 
            // HttpConfiguration config = new HttpConfiguration();
+            HttpConfiguration config = new HttpConfiguration();
 
             ConfigureOAuth(app);
+
+            WebApiConfig.Register(config);
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseWebApi(config);
         }
 
         public void ConfigureOAuth(IAppBuilder app)
-        {
-
+        {   
             OAuthAuthorizationServerOptions oauthserveroptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new Microsoft.Owin.PathString("/token"),
-                //AccessTokenExpireTimeSpan = TimeSpan.from(2),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(2),
                 Provider = new SimpleAuthorizationProvider()
             };
 
             app.UseOAuthAuthorizationServer(oauthserveroptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            
         }
 
 
