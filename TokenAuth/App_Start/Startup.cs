@@ -15,9 +15,7 @@ namespace TokenAuth
     {
 
         public void Configuration(IAppBuilder app)
-        {
-
-           // HttpConfiguration config = new HttpConfiguration();
+        {  
             HttpConfiguration config = new HttpConfiguration();
 
             ConfigureOAuth(app);
@@ -33,7 +31,7 @@ namespace TokenAuth
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new Microsoft.Owin.PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(2),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(3),
                 Provider = new SimpleAuthorizationProvider()
             };
 

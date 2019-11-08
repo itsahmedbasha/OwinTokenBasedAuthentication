@@ -128,7 +128,9 @@
   <ItemGroup>
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Business Layer\UserBusinessLayer.cs" />
     <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="DataAccess Layer\UserDataAccessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

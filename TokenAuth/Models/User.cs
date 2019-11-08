@@ -7,9 +7,23 @@ namespace TokenAuth.Models
 {
     public class User
     {
-        public int Id { get; set; }
-        public String Name { get; set; }
-        public String Email { get; set; }
-        public String Password { get; set; }
+        public int UserID { get; set; }
+
+        public string UserName { get; set; }
+
+        public string UserPassword { get; set; }
+
+        public string Email { get; set; }
+
+        public string MobileNumber { get; set; }
+
+        public string FullName { get; set; }
+
+        public int GenderID { get; set; }
+
+        public string Gender { get; set; }
+
+        public bool InActive { get; set; }
+
     } 
 }
