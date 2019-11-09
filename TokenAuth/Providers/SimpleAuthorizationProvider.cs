@@ -20,7 +20,9 @@ namespace TokenAuth.Providers
             if (context.UserName == "basha@gmail.com" && context.Password == "admin")
             {
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-                
+
+                System.Threading.Thread.Sleep(5000);
+
                 context.Validated(identity);
             }
             else
