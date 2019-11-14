@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using TokenAuth.Common;
 using TokenAuth.Models;
 
 namespace TokenAuth.DataAccess_Layer
 {
     public class UserDataAccessLayer : IDisposable
     {
-        string connectionString = "server=192.168.0.205;database=LearnSQL;user=trainee;password=trainee";
+
 
         public bool RegisterUser(User userModel)
         {
@@ -17,33 +18,36 @@ namespace TokenAuth.DataAccess_Layer
             var response = true;
 
             // forming query for inserting data to table
-            var registerQuery = "insert into sab_RegisteredUsers (UserName,UserPassword,FullName,EmailID,MobileNumber,GenderID)"
-                                + "values ('" + userModel.UserName + "','" + userModel.UserPassword + "','"
-                                + userModel.FullName + "','" + userModel.Email + "','" + userModel.MobileNumber + "'," + userModel.GenderID + ")";
+            var registerQuery = "insert into RegisteredUser (UserName,UserPassword,UserFullName,UserEmail,UserMobileNumber)"
+                                + "values "
+                                + "('" + userModel.UserName + "','" + userModel.UserPassword + "','"
+                                + userModel.FullName + "','" + userModel.Email + "','" + userModel.MobileNumber + "')";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (CommonHelper commonhelper = new CommonHelper())
             {
-                conn.Open();
-
-                using (SqlCommand cmd = new SqlCommand(registerQuery, conn))
+                using (SqlConnection conn = new SqlConnection(commonhelper.GetConnectionStringBasedOnEnvironment()))
                 {
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        return false;
-                    }
-                    finally
-                    {
+                    conn.Open();
 
+                    using (SqlCommand cmd = new SqlCommand(registerQuery, conn))
+                    {
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            return false;
+                        }
+                        finally
+                        {
+
+                        }
                     }
+
+                    conn.Close();
                 }
-
-                conn.Close();
             }
-
 
             return response;
         }

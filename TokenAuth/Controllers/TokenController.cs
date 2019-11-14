@@ -18,7 +18,7 @@ namespace TokenAuth.Controllers
             return Ok("hey u authorized");
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IHttpActionResult RegisterUser(User userModel)
         {
